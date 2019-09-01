@@ -3,6 +3,7 @@
 namespace Fspafs\Policies;
 
 use Fspafs\Models\User;
+use Fspafs\Models\Blog;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class BlogPolicy
