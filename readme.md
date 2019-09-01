@@ -26,5 +26,7 @@
 <p>Step11: Within resources/js/components/common/ folder, create Nav.vue, Dashboard.vue, Login.vue, Register.vue</p>
 <p>Step12: Within resources/js/tests folder, create Login.test.js, Register.test.js</p>
 <p>Step13: Update resources/views/layouts/app.blade.php resources/views/welcome.blade.php</p>
+<p>Step14: add MIX_APP_URL="${APP_URL}" into .env</p>
+<p>Step15: Update LoginController.php, RegisterController.php and AuthTest.php</p>
 
 <p>If all the above works, the SPA Laravel Passport Vue Fullstack works. It includes frontend unittest by jest and backend unittests by phpunit.</p>
