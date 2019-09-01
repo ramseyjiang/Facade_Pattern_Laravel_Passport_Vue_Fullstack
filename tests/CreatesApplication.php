@@ -41,4 +41,21 @@ trait CreatesApplication
 
         return $user;
     }
+
+    /**
+     * Return request headers needed to interact with the API.
+     *
+     * @return Array array of headers.
+     */
+    protected function headers($user = null)
+    {
+        if (is_null($user)) {
+            $user = User::first();
+        }
+
+        return [
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer ' . $user->createToken('Personal Access Token')->accessToken,
+        ];
+    }
 }
