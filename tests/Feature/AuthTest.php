@@ -1,5 +1,4 @@
 <?php
-
 namespace Tests\Feature;
 
 use Tests\TestCase;
@@ -24,6 +23,7 @@ class AuthTest extends TestCase
             'username' => 'test',
             'password' => '12345678',
         ];
+
         //Send post request
         $response = $this->call('POST', route('register'), $data);
 
@@ -35,8 +35,6 @@ class AuthTest extends TestCase
             'name' => $data['name'],
             'username' => $data['username'],
         ]);
-
-        $this->call('POST', route('logout'));
     }
 
     /**
@@ -76,7 +74,6 @@ class AuthTest extends TestCase
             'username'    => 'test@email.com',
             'password' => 'notlegitpassword'
         ]);
-
         $response->assertStatus(Response::HTTP_FOUND);
     }
 
@@ -86,7 +83,6 @@ class AuthTest extends TestCase
             'username'    => 'test',
             'password' => 'notlegitpassword'
         ]);
-
         $response->assertStatus(Response::HTTP_FOUND);
     }
 }
