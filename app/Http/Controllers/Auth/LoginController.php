@@ -4,6 +4,8 @@ namespace Fspafs\Http\Controllers\Auth;
 
 use Fspafs\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Fspafs\Http\Requests\UserLoginRequest;
+use UserService;
 
 class LoginController extends Controller
 {
@@ -35,5 +37,24 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * Rewrite login function in AuthenticatesUsers class for username or password login.
+     *
+     * @param  Fspafs\Http\Requests\UserLoginRequest  $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function login(UserLoginRequest $request)
+    {
+        UserService::checkLogin($request->username, $request->password);
+
+        if ($request->user()) {
+            return $this->sendLoginResponse($request);
+        }
+
+        return $this->sendFailedLoginResponse($request);
     }
 }

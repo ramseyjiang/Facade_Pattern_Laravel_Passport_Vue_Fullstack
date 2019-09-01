@@ -2,13 +2,32 @@
 
 <p>If want to learn how to do this project step by step, please follow all the under below.</p>
 
-<p>php artisan make:migration add_username_to_users</p>
-<p>open .env file, change database, username, password the same with your local.</p>
-<p>php artisan migrate (If make a mistake, run "php artisan migrate:rollback")</p>
-<p>php artisan app:name Fspafs</p>
-<p>php artisan make:model Models/User</p>
-<p>delete User.php under Models folder, and then move app/User.php into Models folder. After that, modify User.php namespace</p>
-<p>change User namespace in config/auth.php, config/services.php, database/factories/UserFactory.php.</p>
-<p>remove comment in the database/seeds/DatabaseSeeder.php</p>
-<p>php artisan make:seeder UsersTableSeeder (Add content into it, please find it in the /database/seeds/UsersTableSeeder.php)</p>
-<p>php artisan db:seed --class UsersTableSeeder (It will insert UserSeed into db automatically)</p>
+<p>php artisan make:request UserLoginRequest</p>
+<p>php artisan make:request UserRegisterRequest</p>
+<p>Update Models/User.php</p>
+
+<p>mkdir app/Contracts</p>
+<p>mkdir app/Contracts/Repositories</p>
+<p>mkdir app/Contracts/Services</p>
+<p>Create a file named UserRepositoryContract.php in Contracts/Repositories folder</p>
+<p>mkdir app/Repositories</p>
+<p>Create a file named UserFacadeRepository.php in Repositories folder</p>
+<p>Update AppServiceProvider.php in the Providers folder, 
+add $this->app->bind(UserRepositoryContract::class, UserFacadeRepository::class); in the register method.</p>
+<p>mkdir app/Facades</p>
+<p>Create a file named UserRepositoryFacade.php</p>
+<p>Add 'UserRepository' => Fspafs\Facades\FacadeUserRepository::class, into aliases array in the config/app.php. </p>
+
+<p>Create a file named UserServiceContract.php in app/Contracts/Services folder</p>
+<p>mkdir app/Services</p>
+<p>Create a file named UserFacadeService.php in Services folder</p>
+<p>Update AppServiceProvider.php in the Providers folder, 
+add $this->app->bind(UserServiceContract::class, UserFacadeService::class); in the register method.</p>
+<p>Within app/Facades folder, Create a file named UserServiceFacade.php</p>
+<p>Add 'UserService' => Fspafs\Facades\UserServiceFacade::class, into aliases array in the config/app.php. </p>
+
+<p>Update app/Controllers/Auth/LoginController.php and app/Controllers/Auth/RegisterController.php</p>
+
+<p>php artisan make:test AuthTest(It is used to create unit tests.)</p>
+<p>Update tests/CreatesApplication.php</p>
+<p>./vender/bin/phpunit (If no errors, it works fine.)</p>
