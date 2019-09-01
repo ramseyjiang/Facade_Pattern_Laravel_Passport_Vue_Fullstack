@@ -1,4 +1,4 @@
-<p>All the underbelow, it bases on you have learnt "https://github.com/ramseyjiang/Facade_Pattern_Laravel_Passport_Vue_Fullstack/tree/base" before.</p>
+<p>All the underbelow, it bases on you have learnt "https://github.com/ramseyjiang/Facade_Pattern_Laravel_Passport_Vue_Fullstack/tree/add_username_UsersTableSeeder_change_codeStructure" before.</p>
 
 <p>If want to learn how to do this project step by step, please follow all the under below.</p>
 
