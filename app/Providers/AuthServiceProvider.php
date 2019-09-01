@@ -14,7 +14,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'Fspafs\Model' => 'Fspafs\Policies\ModelPolicy',
+        'Fspafs\Models\Blog' => 'Fspafs\Policies\BlogPolicy',
     ];
 
     /**

@@ -229,6 +229,8 @@ return [
 
         'UserRepository' => Fspafs\Facades\UserRepositoryFacade::class,
         'UserService' => Fspafs\Facades\UserServiceFacade::class,
+        'BlogRepository' => Fspafs\Facades\BlogRepositoryFacade::class,
+        'LogRepository' => Fspafs\Facades\LogRepositoryFacade::class,
     ],
 
 ];
